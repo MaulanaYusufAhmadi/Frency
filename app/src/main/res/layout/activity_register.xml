@@ -4,36 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.register.RegisterActivity"
+    android:paddingTop="?attr/actionBarSize">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/colorOnPrimary"
+        />
 
     <TextView
         android:id="@+id/tv_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="REGISTER"
         android:textSize="24dp"
         android:textStyle="bold"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="130dp"/>
+        android:layout_marginTop="24dp"/>
 
     <TextView
         android:id="@+id/tv_desc_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hi! Welcome"
+        android:text="Let's join us!"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_login"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tl_email"
-        android:layout_width="match_parent"
+        android:id="@+id/tl_username"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Username"
         app:endIconMode="clear_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +56,28 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_username"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Login"
+        android:text="Register"
         app:layout_constraintEnd_toEndOf="@id/tl_password"
         app:layout_constraintStart_toStartOf="@id/tl_password"
         app:layout_constraintTop_toBottomOf="@id/tv_forget_pass" />
@@ -95,7 +127,7 @@
         android:id="@+id/tv_not_have_acc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Not have account?"
+        android:text="Have any account? Login here"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_login"
@@ -155,7 +187,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login with Google"/>
+            android:text="Register with Google"/>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
