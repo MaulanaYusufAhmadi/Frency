@@ -56,6 +56,8 @@ dependencies {
 
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
+    implementation("com.tbuonomo:dotsindicator:5.0")
+
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
 }

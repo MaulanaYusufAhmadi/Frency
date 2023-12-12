@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Text.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Text.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="Text.Medium">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Text.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Text.SemiBold.H1">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Text.Bold.H2">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Text.SemiBold.H3">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text.Medium.H4">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.Regular.H5">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.SemiBold.Body1">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Regular.Body2">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Regular.Subtitle1">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Medium.Subtitle2">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.SemiBold.H1.Center">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Text.SemiBold.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Text.Medium.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Text.SemiBold.Body1.Center">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Button.RoundedSmall">
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Small</item>
+    </style>
+
+    <style name="Button.RoundedSmall.SemiBold">
+        <item name="android:textAppearance">@style/Text.SemiBold.Button</item>
+    </style>
+
+    <style name="Button.RoundedSmall.Medium">
+        <item name="android:textAppearance">@style/Text.Medium.H4</item>
+    </style>
+
+<!--    <style name="Chip" parent="@style/Widget.Material3.Chip.Filter">-->
+<!--        <item name="android:layout_width">wrap_content</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="chipBackgroundColor">@color/chip_bg_primary</item>-->
+<!--        <item name="checkedIconTint">@android:color/white</item>-->
+<!--        <item name="chipStrokeWidth">1dp</item>-->
+<!--        <item name="chipCornerRadius">30dp</item>-->
+<!--        <item name="android:textColor">@color/chip_text_primary</item>-->
+<!--        <item name="android:textAlignment">center</item>-->
+<!--    </style>-->
+
+<!--    <style name="Chip.Subtitle">-->
+<!--        <item name="android:textAppearance">@style/Text.Regular.Subtitle1</item>-->
+<!--    </style>-->
+
+<!--    <style name="Chip.Subtitle.Primary">-->
+<!--        <item name="chipStrokeColor">@color/seed</item>-->
+<!--        <item name="android:textColor">@color/chip_text_primary</item>-->
+<!--    </style>-->
+
+<!--    <style name="Chip.Subtitle.Grey">-->
+<!--        <item name="chipStrokeColor">@android:color/darker_gray</item>-->
+<!--        <item name="android:textColor">@color/chip_text_black</item>-->
+<!--    </style>-->
+
+<!--    <style name="TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">-->
+<!--        <item name="boxCornerRadiusTopStart">5dp</item>-->
+<!--        <item name="boxCornerRadiusTopEnd">5dp</item>-->
+<!--        <item name="boxCornerRadiusBottomStart">5dp</item>-->
+<!--        <item name="boxCornerRadiusBottomEnd">5dp</item>-->
+<!--        <item name="hintTextAppearance">@style/Text.Medium.H4</item>-->
+<!--    </style>-->
+
+<!--    <style name="BottomNavigationView" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">-->
+<!--        <item name="android:color">@color/md_theme_dark_primary</item>-->
+<!--    </style>-->
+
+<!--    <style name="AlertDialog" parent="Theme.AppCompat.Dialog.Alert">-->
+<!--        <item name="android:windowBackground">@drawable/bg_alert_dialog</item>-->
+<!--        <item name="android:windowIsFloating">true</item>-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:windowMinWidthMajor">80%</item>-->
+<!--        <item name="android:windowMinWidthMinor">80%</item>-->
+<!--    </style>-->
+</resources>
