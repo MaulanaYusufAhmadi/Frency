@@ -12,7 +12,7 @@
 
         <SearchView
             android:id="@+id/search_view"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginStart="24dp"
@@ -21,6 +21,8 @@
             android:iconifiedByDefault="false"
             android:inputType="text"
             android:queryHint="Search"
+            app:layout_constraintEnd_toStartOf="@+id/iv_notification"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -35,6 +37,7 @@
             android:background="@color/white"
             android:src="@drawable/baseline_notifications_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/search_view"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -143,9 +146,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/text_view3"
+            app:spanCount="2"
             tools:ignore="MissingConstraints"
             tools:itemCount="6"
-            app:spanCount="2"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/franchise_card" />
     </androidx.constraintlayout.widget.ConstraintLayout>

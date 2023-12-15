@@ -9,8 +9,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:navigationIcon="@drawable/ic_back"
+                app:title="Detail"
+                app:titleCentered="true"
+                app:titleTextAppearance="@style/Text.SemiBold.H3"
+                app:titleTextColor="@android:color/black" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <ImageView
             android:id="@+id/iv_franchise"
@@ -18,37 +40,41 @@
             android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_detail"
             tools:ignore="MissingConstraints"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iv_franchise2"
-            android:layout_width="135dp"
+            android:layout_width="0dp"
             android:layout_height="100dp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_franchise3"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_franchise"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="200dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iv_franchise3"
-            android:layout_width="140dp"
+            android:layout_width="0dp"
             android:layout_height="100dp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_franchise4"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_franchise2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_franchise"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="200dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iv_franchise4"
-            android:layout_width="135dp"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_franchise3"
+            app:layout_constraintTop_toBottomOf="@+id/iv_franchise"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="200dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

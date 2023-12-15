@@ -6,27 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.wishlist.WishlistFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorOnPrimary"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_wishlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:liftOnScroll="true">
 
-        <TextView
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_wishlist"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wishlist"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:layout_marginEnd="20dp"
-            android:textAlignment="center"
-            android:textAppearance="?attr/textAppearanceHeadline6"/>
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:background="@color/white"
+            app:title="Wishlist"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/Text.SemiBold.H3"
+            app:titleTextColor="@android:color/black" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_franchise"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/appbar_wishlist"
+        app:spanCount="2"
+        tools:ignore="MissingConstraints"
+        tools:itemCount="3"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/franchise_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
