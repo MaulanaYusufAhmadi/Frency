@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="130dp"/>
 
     <TextView
         android:id="@+id/tv_desc_login"
@@ -30,10 +30,10 @@
         app:layout_constraintTop_toBottomOf="@id/tv_login"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tl_email"
-        android:layout_width="match_parent"
+        android:id="@+id/tl_username"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Username"
         app:endIconMode="clear_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +58,7 @@
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tl_email"
+        app:layout_constraintTop_toBottomOf="@id/tl_username"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -93,7 +94,7 @@
 
     <TextView
         android:id="@+id/tv_not_have_acc"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Not have account?"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +137,8 @@
         app:layout_constraintStart_toStartOf="@+id/btn_login"
         app:layout_constraintTop_toTopOf="@id/tv_or" />
 
+
+
     <LinearLayout
         android:id="@+id/btn_google"
         android:layout_width="0dp"
@@ -159,5 +162,27 @@
             android:layout_height="wrap_content"
             android:text="Login with Google"/>
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/overlay_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.5"
+        android:background="#88000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

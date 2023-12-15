@@ -7,7 +7,7 @@ import com.dicoding.frency.data.pref.UserModel
 import com.dicoding.frency.data.pref.UserPreference
 import com.dicoding.frency.data.remote.response.ErrorResponse
 import com.dicoding.frency.data.remote.response.LoginResponse
-import com.dicoding.frency.data.remote.response.RegisterFranchisorResponse
+import com.dicoding.frency.data.remote.response.RegisterFranchiseeResponse
 import com.dicoding.frency.data.remote.retrofit.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
@@ -32,11 +32,11 @@ class UserRepository private constructor(
     }
 
 
-    suspend fun createUser(email: String, name: String, username: String , password: String): Flow<Result<RegisterFranchisorResponse>> = flow {
+    suspend fun createUser(email: String, name: String, username: String , password: String): Flow<Result<RegisterFranchiseeResponse>> = flow {
         emit(Result.Loading)
         try {
             // Panggil metode createUser pada apiService
-            val registerRequest = RegisterRequest(email, name, username, password, "franchisor")
+            val registerRequest = RegisterRequest(email, name, username, password, "franchisee")
             val response = apiService.createUser(registerRequest)
             emit(Result.Success(response))
         } catch (t: Throwable) {

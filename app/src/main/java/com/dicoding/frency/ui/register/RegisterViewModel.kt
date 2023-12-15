@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.frency.data.Result
 import com.dicoding.frency.data.UserRepository
-import com.dicoding.frency.data.remote.response.RegisterFranchisorResponse
+import com.dicoding.frency.data.remote.response.RegisterFranchiseeResponse
 import kotlinx.coroutines.launch
 
 class RegisterViewModel(private val repository: UserRepository): ViewModel() {
-    private val _createUserResult = MutableLiveData<Result<RegisterFranchisorResponse>>()
-    val createUserResult: LiveData<Result<RegisterFranchisorResponse>> = _createUserResult
+    private val _createUserResult = MutableLiveData<Result<RegisterFranchiseeResponse>>()
+    val createUserResult: LiveData<Result<RegisterFranchiseeResponse>> = _createUserResult
 
     fun createUser(email: String, name: String, username: String , password: String) {
         viewModelScope.launch {

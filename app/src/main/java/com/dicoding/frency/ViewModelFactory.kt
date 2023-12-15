@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.frency.data.UserRepository
 import com.dicoding.frency.di.Injection
+import com.dicoding.frency.ui.login.LoginViewModel
 import com.dicoding.frency.ui.register.RegisterViewModel
 
 class ViewModelFactory(
@@ -13,6 +14,9 @@ class ViewModelFactory(
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
             }
