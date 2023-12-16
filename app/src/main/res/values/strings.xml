@@ -15,7 +15,7 @@
     <string name="input_confirm_password">Input confirm password</string>
     <string name="network_error">Network error</string>
     <string name="username_password_is_incorrect">Username/password is incorrect</string>
-
+    <string name="on_click_handler">Feature not implemented yet</string>
     <!-- Night Mode Preferences -->
     <string name="pref_dark_title">Dark mode</string>
     <string name="pref_key_dark" translatable="false">key_dark_mode</string>

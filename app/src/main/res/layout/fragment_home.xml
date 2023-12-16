@@ -78,7 +78,7 @@
             app:selectedDotColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_view1"
+            android:id="@+id/tv_title_type"
             style="@style/Text.SemiBold.H3"
             android:layout_width="wrap_content"
             android:layout_marginStart="24dp"
@@ -99,14 +99,14 @@
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_type"
             tools:ignore="MissingConstraints"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/type_item"
             tools:orientation="horizontal" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_view2"
+            android:id="@+id/tv_title_recomendation"
             style="@style/Text.SemiBold.H3"
             android:layout_width="wrap_content"
             android:layout_marginStart="24dp"
@@ -123,14 +123,14 @@
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
             android:paddingEnd="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_view2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_recomendation"
             tools:ignore="MissingConstraints"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/recomendation_card"
             tools:orientation="horizontal" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_view3"
+            android:id="@+id/tv_title_franchise"
             style="@style/Text.SemiBold.H3"
             android:layout_width="wrap_content"
             android:layout_marginStart="24dp"
@@ -145,7 +145,7 @@
             android:id="@+id/rv_franchise"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/text_view3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_franchise"
             app:spanCount="2"
             tools:ignore="MissingConstraints"
             tools:itemCount="6"

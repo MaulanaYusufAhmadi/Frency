@@ -3,7 +3,7 @@ package com.dicoding.frency
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.frency.data.UserRepository
+import com.dicoding.frency.data.repository.UserRepository
 import com.dicoding.frency.di.Injection
 import com.dicoding.frency.ui.login.LoginViewModel
 import com.dicoding.frency.ui.register.RegisterViewModel

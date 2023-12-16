@@ -1,6 +1,7 @@
-package com.dicoding.frency.data
+package com.dicoding.frency.data.repository
 
 import android.util.Log
+import com.dicoding.frency.data.Result
 import com.dicoding.frency.data.pref.LoginRequest
 import com.dicoding.frency.data.pref.RegisterRequest
 import com.dicoding.frency.data.pref.UserModel

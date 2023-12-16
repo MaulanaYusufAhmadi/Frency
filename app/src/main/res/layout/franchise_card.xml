@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="16dp"
+    android:id="@+id/franchise_layout"
     android:layout_margin="10dp"
     android:clickable="true"
     android:focusable="true"
@@ -18,7 +19,7 @@
         <!-- Media -->
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/iv_franchise"
             android:layout_width="165dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
@@ -37,7 +38,7 @@
         <!-- Title, secondary and supporting text -->
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -46,10 +47,11 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_franchise"
             tools:ignore="MissingConstraints" />
 
         <TextView
+            android:id="@+id/tv_range"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -59,7 +61,7 @@
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

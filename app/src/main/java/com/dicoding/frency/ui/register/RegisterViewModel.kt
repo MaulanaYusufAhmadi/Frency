@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.frency.data.Result
-import com.dicoding.frency.data.UserRepository
+import com.dicoding.frency.data.repository.UserRepository
 import com.dicoding.frency.data.remote.response.RegisterFranchiseeResponse
 import kotlinx.coroutines.launch
 
