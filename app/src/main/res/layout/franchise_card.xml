@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
+    android:layout_width="155dp"
     android:layout_height="210dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="16dp"
     android:id="@+id/franchise_layout"
     android:layout_margin="10dp"
+    android:padding="4dp"
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal">

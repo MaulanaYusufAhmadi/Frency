@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dicoding.frency.data.entity.Franchise
 import com.dicoding.frency.databinding.ItemCarouselHomeBinding
 
@@ -14,11 +15,14 @@ class CarouselHomeAdapter(private val onItemClick: (Franchise) -> Unit) :
     inner class CarouselViewHolder(private val binding: ItemCarouselHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: Franchise) {
+        fun bind(item: Franchise) {
             binding.apply {
-//                itemTvGeositeHome.text = data.name
-//                itemImgGeositeHome.loadGeoparkImage(data.img)
-                root.setOnClickListener { onItemClick(data) }
+                Glide.with(binding.root)
+                    .load(item.imgUrl[0])
+//                .diskCacheStrategy(DiskCacheStrategy.NONE )
+//                .skipMemoryCache(true)
+                    .into(binding.ivCarousel)
+                root.setOnClickListener { onItemClick(item) }
             }
         }
     }
