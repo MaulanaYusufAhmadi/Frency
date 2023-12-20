@@ -1,25 +1,31 @@
 package com.dicoding.frency.ui.account
 
+import android.app.ProgressDialog
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.Fragment
-import androidx.preference.ListPreference
-import androidx.preference.PreferenceFragmentCompat
+import android.widget.ImageView
+import androidx.fragment.app.viewModels
 import com.dicoding.frency.R
+import com.dicoding.frency.ViewModelFactory
 import com.dicoding.frency.databinding.FragmentAccountBinding
-import com.dicoding.frency.utils.DarkMode
 
 class AccountFragment : Fragment() {
 
     private lateinit var binding: FragmentAccountBinding
+    private lateinit var progressDialog: ProgressDialog
+    private lateinit var photoProfile: ImageView
+    private val viewModel by viewModels<AccountViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentAccountBinding.inflate(inflater , container , false)
         return binding.root
     }
@@ -27,33 +33,28 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Settings Fragment
         val preferenceFragment = MyPreferenceFragment()
         childFragmentManager.beginTransaction()
             .replace(R.id.settings, preferenceFragment)
             .commit()
-    }
 
-}
+        progressDialog = ProgressDialog(requireContext())
+        photoProfile = binding.ivProfile
 
-class MyPreferenceFragment : PreferenceFragmentCompat() {
-
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.root_preferences, rootKey)
-
-        val theme = findPreference<ListPreference>(getString(R.string.pref_key_dark))
-        theme?.setOnPreferenceChangeListener { _, newValue ->
-            when (newValue) {
-                "auto" -> updateTheme(DarkMode.FOLLOW_SYSTEM.value)
-                "on" -> updateTheme(DarkMode.ON.value)
-                "off" -> updateTheme(DarkMode.OFF.value)
-            }
-            true
+        viewModel.getSession().observe(requireActivity()) { user ->
+            binding.tvNameProfile.text = user.name
         }
+
     }
 
-    private fun updateTheme(mode: Int): Boolean {
-        AppCompatDelegate.setDefaultNightMode(mode)
-        requireActivity().recreate()
-        return true
+    override fun onResume() {
+        super.onResume()
+    }
+
+
+    companion object {
+        private const val TAG = "AccountFragment"
     }
 }
+

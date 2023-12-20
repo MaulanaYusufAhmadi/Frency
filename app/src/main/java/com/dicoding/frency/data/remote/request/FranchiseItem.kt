@@ -1,7 +1,7 @@
-package com.dicoding.frency.data.entity
+package com.dicoding.frency.data.remote.request
 
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class FranchiseItem(

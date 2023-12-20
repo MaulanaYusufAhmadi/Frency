@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.wishlist.WishlistFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/appbar_wishlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,23 +20,92 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.8"
-            android:background="@color/white"
-            app:title="Wishlist"
+            app:title="@string/wishlist"
+            app:navigationIcon="@color/transparent"
+            style="@style/Toolbar"
             app:titleCentered="true"
-            app:titleTextAppearance="@style/Text.SemiBold.H3"
-            app:titleTextColor="@android:color/black" />
+            app:titleTextAppearance="@style/Text.SemiBold.H3" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_wishlist"
+        android:paddingTop="16dp"
+        android:visibility="gone"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appbar_wishlist"
-        app:spanCount="2"
-        tools:ignore="MissingConstraints"
-        tools:itemCount="3"
-        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/franchise_card" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_wishlist" />
+
+    <TextView
+        android:id="@+id/tv_no_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No favorites data"
+        android:textAlignment="textEnd"
+        android:visibility="gone"
+        android:textColor="#393939"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbar_wishlist" />
+
+    <TextView
+        android:id="@+id/tv_have_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login Requirement!"
+        android:textAlignment="textEnd"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_login_here"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbar_wishlist" />
+
+    <TextView
+        android:id="@+id/tv_login_here"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:text="@string/login_here"
+        android:visibility="gone"
+        android:clickable="true"
+        android:textColor="?attr/colorPrimary"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_have_acc"
+        app:layout_constraintTop_toTopOf="@id/tv_have_acc"
+        app:layout_constraintBottom_toBottomOf="@id/tv_have_acc"
+        android:focusable="true" />
+
+    <FrameLayout
+        android:id="@+id/overlay_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.5"
+        android:background="#88000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+    
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,8 @@ class FranchiseListAdapter : ListAdapter<Franchise, FranchiseListAdapter.MyViewH
 
     class MyViewHolder(private val binding: FranchiseCardBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Franchise) {
-            binding.tvTitle.text = item.name
-            binding.tvRange.text = item.type[0]
+            binding.tvNameFranchises.text = item.name
+            binding.tvPriceFranchises.text = item.type[0]
             Glide.with(binding.root)
                 .load(item.imgUrl[0])
 //                .diskCacheStrategy(DiskCacheStrategy.NONE )

@@ -34,14 +34,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
-//        binding.btnLogin.setOnClickListener {
-//            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-//        }
-
 
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
                 startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
 
@@ -57,7 +54,10 @@ class LoginActivity : AppCompatActivity() {
                 is Result.Success -> {
                     binding.overlayLoading.visibility = View.GONE
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                    viewModel.saveSession(UserModel(result.data.data.name, result.data.data.appToken))
+                    result.data.data.apply {
+                        viewModel.saveSession(UserModel(id, name, email, token, role))
+                    }
+
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
@@ -75,10 +75,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.tlUsername.editText?.text.toString()
+            val email = binding.tlEmail.editText?.text.toString()
             val password = binding.tlPassword.editText?.text.toString()
-
-            viewModel.login(username, password)
+            viewModel.login(email, password)
         }
     }
 }

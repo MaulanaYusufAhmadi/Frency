@@ -2,10 +2,25 @@ package com.dicoding.frency.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
+data class RegisterResponse(
+
+	@field:SerializedName("data")
+	val data: Data,
+
+	@field:SerializedName("success")
+	val success: Boolean,
+
+	@field:SerializedName("message")
+	val message: String
+)
+
 data class LoginResponse(
 
 	@field:SerializedName("data")
 	val data: Data,
+
+	@field:SerializedName("success")
+	val success: Boolean,
 
 	@field:SerializedName("message")
 	val message: String
@@ -13,21 +28,22 @@ data class LoginResponse(
 
 data class Data(
 
+	@field:SerializedName("password")
+	val password: String,
+
 	@field:SerializedName("role")
 	val role: String,
-
-	@field:SerializedName("appToken")
-	val appToken: String,
 
 	@field:SerializedName("name")
 	val name: String,
 
 	@field:SerializedName("id")
-	val id: String,
+	val id: Int,
 
 	@field:SerializedName("email")
 	val email: String,
 
-	@field:SerializedName("username")
-	val username: String
+	@field:SerializedName("token")
+	val token: String
 )
+

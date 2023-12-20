@@ -12,7 +12,7 @@ object DummyData {
                 "Category $i",
                 "'$i'+9090909+'$i'",
                 arrayOf("Type1", "Type2"), // Replace with actual types
-                arrayOf("https://picsum.photos/720/1", "https://picsum.photos/720/2") // Replace with actual URLs
+                arrayOf("https://picsum.photos/720?random=$i", "https://picsum.photos/720?random$i") // Replace with actual URLs
             )
             dataDummy.add(dummyData)
         }
