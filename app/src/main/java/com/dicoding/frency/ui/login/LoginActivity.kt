@@ -37,6 +37,12 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
+                val userName = user.role
+                Toast.makeText(this, "Welcome, $userName!", Toast.LENGTH_SHORT).show()
+
+                // Lanjut ke halaman utama
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
@@ -55,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.overlayLoading.visibility = View.GONE
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                     result.data.data.apply {
-                        viewModel.saveSession(UserModel(id, name, email, token, role))
+                        viewModel.saveSession(UserModel(id, name, email, token, role, "", "", ""))
                     }
 
                     val intent = Intent(this, MainActivity::class.java)

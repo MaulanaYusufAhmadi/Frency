@@ -5,15 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.frency.R
 import com.dicoding.frency.data.entity.DummyData
 import com.dicoding.frency.data.entity.Franchise
 import com.dicoding.frency.databinding.FragmentHomeBinding
-import com.dicoding.frency.ui.adapter.CarouselHomeAdapter
-import com.dicoding.frency.ui.adapter.FranchiseListAdapter
 import com.dicoding.frency.utils.ZoomOutPageTransformer
 import com.dicoding.frency.utils.showMessage
 

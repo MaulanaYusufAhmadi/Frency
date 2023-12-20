@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.frency.data.UserRepository
 import com.dicoding.frency.di.Injection
 import com.dicoding.frency.ui.account.AccountViewModel
+import com.dicoding.frency.ui.editprofile.EditProfileViewModel
+//import com.dicoding.frency.ui.detail.DetailViewModel
 import com.dicoding.frency.ui.login.LoginViewModel
 import com.dicoding.frency.ui.register.RegisterViewModel
 
@@ -24,6 +26,12 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(AccountViewModel::class.java) -> {
                 AccountViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(EditProfileViewModel::class.java) -> {
+                EditProfileViewModel(repository) as T
+            }
+//            modelClass.isAssignableFrom(AccountViewModel::class.java) -> {
+//                DetailViewModel(repository) as T
+//            }
             else -> throw IllegalArgumentException("Unknown ViewModel Class: " + modelClass.name)
         }
     }
