@@ -14,6 +14,7 @@ import com.dicoding.frency.databinding.FragmentHomeBinding
 import com.dicoding.frency.utils.ZoomOutPageTransformer
 import com.dicoding.frency.utils.showMessage
 import android.content.Intent
+import android.util.Log
 import com.dicoding.frency.ViewModelFactory
 import com.dicoding.frency.data.Result
 import com.dicoding.frency.data.remote.response.DataItem
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
 
     private val carouselHomeAdapter: CarouselHomeAdapter by lazy { CarouselHomeAdapter(::carouselItemClicked) }
     private lateinit var binding: FragmentHomeBinding
+
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
@@ -31,14 +33,12 @@ class HomeFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    private lateinit var adapter: FranchiseListAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater , container , false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -93,6 +93,7 @@ class HomeFragment : Fragment() {
         loadData()
 
     }
+
     override fun onResume() {
         super.onResume()
         // Memuat data setiap kali fragment di-resume
@@ -106,8 +107,10 @@ class HomeFragment : Fragment() {
                     // Handle loading state
                     binding.pbListFranchise.visibility = View.VISIBLE
                 }
+
                 is Result.Success -> {
                     binding.pbListFranchise.visibility = View.GONE
+
 
                     if (result.data.isNotEmpty()) {
                         val franchiseList = mutableListOf<DataItem>()
@@ -118,20 +121,22 @@ class HomeFragment : Fragment() {
                         val limitedList = franchiseList.subList(0, 6)
                         val adapterList = FranchiseListAdapter(limitedList)
                         recycler.adapter = adapterList
-
                     } else {
                         // Tampilkan pesan jika tidak ada data
                         binding.tvNoData.visibility = View.VISIBLE
                     }
                 }
+
                 is Result.Error -> {
                     // Handle error state
                     binding.pbListFranchise.visibility = View.GONE
                 }
+
                 else -> {}
             }
         }
     }
+
     private fun carouselItemClicked(franchise: Franchise) {
         getString(R.string.on_click_handler).showMessage(requireContext())
     }

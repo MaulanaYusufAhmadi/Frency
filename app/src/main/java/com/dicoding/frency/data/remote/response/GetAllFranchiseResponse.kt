@@ -5,80 +5,80 @@ import com.google.gson.annotations.SerializedName
 data class GetAllFranchiseResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<DataItem>,
 
 	@field:SerializedName("success")
-	val success: Boolean? = null,
+	val success: Boolean,
 
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String
 )
 
 data class Franchisor(
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null
+	val id: Int
 )
 
 data class DataItem(
 
 	@field:SerializedName("franchise_name")
-	val franchiseName: String? = null,
+	val franchiseName: String,
 
 	@field:SerializedName("address")
-	val address: String? = null,
+	val address: String,
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val description: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	val id: Int,
 
 	@field:SerializedName("category")
-	val category: String? = null,
+	val category: String,
 
 	@field:SerializedName("franchisor")
-	val franchisor: Franchisor? = null,
+	val franchisor: Franchisor,
 
 	@field:SerializedName("franchiseType")
-	val franchiseType: List<FranchiseTypeItem?>? = null,
+	val franchiseType: List<FranchiseTypeItem?>,
 
 	@field:SerializedName("gallery")
-	val gallery: List<GalleryItem?>? = null,
+	val gallery: List<GalleryItem?>,
 
 	@field:SerializedName("whatsapp_number")
-	val whatsappNumber: String? = null
+	val whatsappNumber: String
 )
 
 data class FranchiseTypeItem(
 
 	@field:SerializedName("franchise_id")
-	val franchiseId: Int? = null,
+	val franchiseId: Int,
 
 	@field:SerializedName("price")
-	val price: String? = null,
+	val price: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	val id: Int,
 
 	@field:SerializedName("facility")
-	val facility: String? = null,
+	val facility: String,
 
 	@field:SerializedName("franchise_type")
-	val franchiseType: String? = null
+	val franchiseType: String
 )
 
 data class GalleryItem(
 
 	@field:SerializedName("image")
-	val image: String? = null,
+	val image: String,
 
 	@field:SerializedName("franchise_id")
-	val franchiseId: Int? = null,
+	val franchiseId: Int,
 
 	@field:SerializedName("id")
-	val id: Int? = null
+	val id: Int
 )

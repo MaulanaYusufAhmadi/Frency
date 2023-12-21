@@ -21,6 +21,7 @@ class FranchiseRepository constructor(
         try {
             val response = apiService.getAllFranchises()
             emit(Result.Success(response))
+
         } catch (e: Exception) {
             emit(Result.Error(e.message ?: "An error occurred"))
         }
