@@ -18,26 +18,14 @@ class FranchiseRepository constructor(
 
     fun getAllFranchise(): LiveData<Result<List<GetAllFranchiseResponse>>> = liveData {
         emit(Result.Loading)
-        val token = userPreference.getSession().first().token
-        Log.i("info", token)
         try {
-            val response = apiService.getAllFranchises("0f5adbcb-b529-4a23-bca1-3e0054eec92b")
+            val response = apiService.getAllFranchises()
             emit(Result.Success(response))
         } catch (e: Exception) {
             emit(Result.Error(e.message ?: "An error occurred"))
         }
     }
 
-
-//    suspend fun uploadImages(id: String, imageParts: List<MultipartBody.Part>): Flow<Result<UploadPhotoResponse>> = flow {
-//        emit(Result.Loading)
-//        try {
-//            val response = apiService.uploadImages(id, imageParts)
-//            Result.Success(response)
-//        } catch (e: Exception) {
-//            Result.Error(e.message ?: "An error occurred")
-//        }
-//    }
 
     companion object {
         @Volatile

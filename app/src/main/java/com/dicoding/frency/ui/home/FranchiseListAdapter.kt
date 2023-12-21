@@ -1,15 +1,16 @@
 package com.dicoding.frency.ui.home
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dicoding.frency.ui.detail.DetailActivity
-import com.bumptech.glide.Glide
 import com.dicoding.frency.data.remote.response.DataItem
 import com.dicoding.frency.databinding.FranchiseCardBinding
+import com.dicoding.frency.ui.detail.DetailActivity
+import com.bumptech.glide.Glide
 
-class FranchiseListAdapter(private val franchiseList: List<DataItem?>?) :
+class FranchiseListAdapter(private val franchiseList: List<DataItem>) :
     RecyclerView.Adapter<FranchiseListAdapter.FranchiseViewHolder>() {
 
     inner class FranchiseViewHolder(val binding: FranchiseCardBinding) :
@@ -20,7 +21,6 @@ class FranchiseListAdapter(private val franchiseList: List<DataItem?>?) :
             binding.tvNameFranchises.text = franchiseData.franchiseName
             binding.tvCategoryFranchise.text = franchiseData.category
             binding.tvPriceFranchises.text = franchiseData.description
-
             // Tambahkan logika untuk menampilkan gambar jika ada
             // franchiseData.images berisi URI gambar yang diunggah ke Firebase Storage
             // Misalnya:
@@ -35,23 +35,19 @@ class FranchiseListAdapter(private val franchiseList: List<DataItem?>?) :
     }
 
     override fun onBindViewHolder(holder: FranchiseViewHolder, position: Int) {
-        val franchiseData = franchiseList?.get(position)
+        val franchiseData = franchiseList[position]
 //        val firstImageUri = franchiseData.images.firstOrNull()
-        if (franchiseData != null) {
-            holder.bind(franchiseData)
-        }
+        holder.bind(franchiseData)
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             // Mengirim ID dokumen yang dipilih ke halaman detail menggunakan Intent
             val intent = Intent(context, DetailActivity::class.java)
-            if (franchiseData != null) {
-                intent.putExtra("franchiseId", franchiseData.id)
-            }
+            intent.putExtra("franchiseId", franchiseData.id)
             context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-        return franchiseList?.size!!
+        return franchiseList.size
     }
 }

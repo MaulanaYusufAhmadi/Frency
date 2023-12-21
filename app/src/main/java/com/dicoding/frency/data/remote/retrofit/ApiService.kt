@@ -27,8 +27,6 @@ interface ApiService {
     ): UpdateResponse
 
     @GET("franchises")
-    suspend fun getAllFranchises(
-        @Header("Authorization") authorization: String,
-    ): List<GetAllFranchiseResponse>
+    suspend fun getAllFranchises(): List<GetAllFranchiseResponse>
 
 }

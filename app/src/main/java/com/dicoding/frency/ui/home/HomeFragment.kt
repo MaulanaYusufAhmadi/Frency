@@ -50,14 +50,14 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
             }
         }
-        val franchiseList = mutableListOf<DataItem>()
-
-        val layoutManager = GridLayoutManager(binding.root.context, 2)
-        val recycler = binding.rvFranchise
-        recycler.layoutManager = layoutManager
-        val limitedList = franchiseList
-        val adapterList = FranchiseListAdapter(limitedList)
-        recycler.adapter = adapterList
+//        val franchiseList = mutableListOf<DataItem>()
+//
+//        val layoutManager = GridLayoutManager(binding.root.context, 2)
+//        val recycler = binding.rvFranchise
+//        recycler.layoutManager = layoutManager
+//        val limitedList = franchiseList
+//        val adapterList = FranchiseListAdapter(limitedList)
+//        recycler.adapter = adapterList
 
 //        adapter = FranchiseAdapter(emptyList())
 //        binding.rvListStory.adapter = adapter
@@ -110,9 +110,15 @@ class HomeFragment : Fragment() {
                     binding.pbListFranchise.visibility = View.GONE
 
                     if (result.data.isNotEmpty()) {
+                        val franchiseList = mutableListOf<DataItem>()
                         // Tampilkan data di RecyclerView
-                        adapter = FranchiseListAdapter(result.data.first().data)
-                        binding.rvFranchise.adapter = adapter
+                        val layoutManager = GridLayoutManager(binding.root.context, 2)
+                        val recycler = binding.rvFranchise
+                        recycler.layoutManager = layoutManager
+                        val limitedList = franchiseList.subList(0, 6)
+                        val adapterList = FranchiseListAdapter(limitedList)
+                        recycler.adapter = adapterList
+
                     } else {
                         // Tampilkan pesan jika tidak ada data
                         binding.tvNoData.visibility = View.VISIBLE
