@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
-
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
@@ -35,6 +34,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
+        viewModel.getSession().observe(this) { user ->
+            if (user.isLogin) {
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+        }
 
         viewModel.loginResult.observe(this) { result ->
             when(result) {
@@ -49,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.overlayLoading.visibility = View.GONE
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                     result.data.data.apply {
+                        Log.d("userIdSave", "saveSession: $name, $token")
                         viewModel.saveSession(UserModel(id, name, email, token, role, "", "", ""))
                     }
 

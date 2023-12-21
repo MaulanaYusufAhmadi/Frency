@@ -24,7 +24,7 @@ class FranchiseListAdapter(private val franchiseList: List<DataItem>) :
             // Tambahkan logika untuk menampilkan gambar jika ada
             // franchiseData.images berisi URI gambar yang diunggah ke Firebase Storage
             // Misalnya:
-            Glide.with(binding.root.context).load(franchiseData.gallery.firstOrNull()).into(binding.ivFranchise)
+            Glide.with(binding.root.context).load(franchiseData.gallery.first().image).into(binding.ivFranchise)
 
         }
     }

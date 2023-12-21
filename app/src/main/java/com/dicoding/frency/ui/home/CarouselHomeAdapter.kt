@@ -19,7 +19,7 @@ class CarouselHomeAdapter(private val onItemClick: KFunction1<DataItem, Unit>) :
         fun bind(item: DataItem) {
             binding.apply {
                 Glide.with(binding.root)
-                    .load(item.gallery[0])
+                    .load(item.gallery.first().image)
                     .into(binding.ivCarousel)
                 root.setOnClickListener { onItemClick(item) }
             }

@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.frency.ViewModelFactory
 import com.dicoding.frency.data.Result
 import com.dicoding.frency.data.remote.response.DataItem
+import com.dicoding.frency.ui.detail.DetailActivity
+import com.dicoding.frency.ui.franchiselist.FranchisesListActivity
 import com.dicoding.frency.ui.login.LoginActivity
 import com.dicoding.frency.ui.login.LoginViewModel
 
@@ -45,16 +47,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userViewModel.getSession().observe(viewLifecycleOwner) { user ->
-            if (!user.isLogin) {
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-            }
+        userViewModel.getSession().observe(viewLifecycleOwner) {
+            Log.d("userId", "saveSession: ${it.token}")
         }
 
-        adapter = FranchiseListAdapter(emptyList())
-        binding.rvFranchise.adapter = adapter
         binding.rvFranchise.layoutManager = GridLayoutManager(binding.root.context, 2)
 
+        binding.btnSeeAllFranchises.setOnClickListener {
+            val intent = Intent(requireContext(), FranchisesListActivity::class.java)
+            intent.putExtra("allFranchises", true)
+            startActivity(intent)
+        }
 //        val swipeRefreshLayout = binding.swipeRefreshLayout
 //
 //        // Tambahkan listener untuk refresh
@@ -81,22 +84,49 @@ class HomeFragment : Fragment() {
             when (result) {
                 is Result.Loading -> {
                     // Handle loading state
+                    Log.d("inpo3", "res loading")
+
                     binding.pbListFranchise.visibility = View.VISIBLE
                 }
                 is Result.Success -> {
-                    binding.pbListFranchise.visibility = View.GONE
 
-                    if (result.data != null ) {
+                    binding.pbListFranchise.visibility = View.GONE
+                    val allFranchises = result.data.data
+//                    val limitedList = allFranchises.subList(0, 6)
+                    Log.d("inpo3", allFranchises.count().toString())
+
+                    Log.d("inpo3", "loadData: $allFranchises")
+
+                    adapter = FranchiseListAdapter(allFranchises)
+                    binding.rvFranchise.adapter = adapter
+
+                    carouselHomeAdapter.submitList(allFranchises)
+
+                    with(binding) {
+                        this.carouselPager.apply {
+                            adapter = carouselHomeAdapter
+
+                            val zoomOutPageTransformer = ZoomOutPageTransformer()
+                            setPageTransformer { page, position ->
+                                zoomOutPageTransformer.transformPage(page, position)
+                            }
+
+                            dotsIndicator.attachTo(this)
+                        }
+                    }
+                    if (result.data.data.isNotEmpty()) {
                         // Tampilkan data di RecyclerView
-                        adapter = FranchiseListAdapter(result.data.data)
-                        binding.rvFranchise.adapter = adapter
+
                     } else {
                         // Tampilkan pesan jika tidak ada data
+
                         binding.tvNoData.visibility = View.VISIBLE
                     }
                 }
                 is Result.Error -> {
                     // Handle error state
+                    Log.d("inpo3", "result err")
+
                     binding.pbListFranchise.visibility = View.GONE
                 }
                 else -> {}
@@ -105,6 +135,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun carouselItemClicked(franchise: DataItem) {
-        getString(R.string.on_click_handler).showMessage(requireContext())
+        val intent = Intent(requireContext(), DetailActivity::class.java)
+        intent.putExtra("franchiseId", franchise.id)
+        startActivity(intent)
     }
 }

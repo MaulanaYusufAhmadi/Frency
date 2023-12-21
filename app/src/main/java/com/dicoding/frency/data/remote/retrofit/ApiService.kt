@@ -19,7 +19,6 @@ interface ApiService {
     @POST("users/login")
     suspend fun login(@Body request: LoginRequest): LoginResponse
 
-
     @PATCH("users/current")
     suspend fun updateUser(
         @Header("Authorization") authorization: String,
@@ -27,6 +26,8 @@ interface ApiService {
     ): UpdateResponse
 
     @GET("franchises")
-    suspend fun getAllFranchises(): GetAllFranchiseResponse
+    suspend fun getAllFranchises(
+//        @Header("Authorization") authorization: String,
+    ): GetAllFranchiseResponse
 
 }
