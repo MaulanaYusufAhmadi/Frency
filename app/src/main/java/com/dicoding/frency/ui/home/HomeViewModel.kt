@@ -8,7 +8,7 @@ import com.dicoding.frency.data.remote.response.GetAllFranchiseResponse
 
 class HomeViewModel(private val repository: FranchiseRepository): ViewModel() {
 
-    fun getAllFranchise(): LiveData<Result<List<GetAllFranchiseResponse>>> {
+    fun getAllFranchise(): LiveData<Result<GetAllFranchiseResponse>> {
         return repository.getAllFranchise()
     }
 }

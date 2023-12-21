@@ -1,7 +1,6 @@
 package com.dicoding.frency.ui.home
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,10 +20,11 @@ class FranchiseListAdapter(private val franchiseList: List<DataItem>) :
             binding.tvNameFranchises.text = franchiseData.franchiseName
             binding.tvCategoryFranchise.text = franchiseData.category
             binding.tvPriceFranchises.text = franchiseData.description
+
             // Tambahkan logika untuk menampilkan gambar jika ada
             // franchiseData.images berisi URI gambar yang diunggah ke Firebase Storage
             // Misalnya:
-            Glide.with(binding.root.context).load(franchiseData.gallery?.firstOrNull()).into(binding.ivFranchise)
+            Glide.with(binding.root.context).load(franchiseData.gallery.firstOrNull()).into(binding.ivFranchise)
 
         }
     }

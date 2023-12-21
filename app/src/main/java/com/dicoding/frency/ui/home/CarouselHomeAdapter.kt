@@ -6,21 +6,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dicoding.frency.data.entity.Franchise
+import com.dicoding.frency.data.remote.response.DataItem
 import com.dicoding.frency.databinding.ItemCarouselHomeBinding
+import kotlin.reflect.KFunction1
 
-class CarouselHomeAdapter(private val onItemClick: (Franchise) -> Unit) :
-    ListAdapter<Franchise, CarouselHomeAdapter.CarouselViewHolder>(DIFF_CALLBACK) {
+class CarouselHomeAdapter(private val onItemClick: KFunction1<DataItem, Unit>) :
+    ListAdapter<DataItem, CarouselHomeAdapter.CarouselViewHolder>(DIFF_CALLBACK) {
 
     inner class CarouselViewHolder(private val binding: ItemCarouselHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Franchise) {
+        fun bind(item: DataItem) {
             binding.apply {
                 Glide.with(binding.root)
-                    .load(item.imgUrl[0])
-//                .diskCacheStrategy(DiskCacheStrategy.NONE )
-//                .skipMemoryCache(true)
+                    .load(item.gallery[0])
                     .into(binding.ivCarousel)
                 root.setOnClickListener { onItemClick(item) }
             }
@@ -45,12 +44,12 @@ class CarouselHomeAdapter(private val onItemClick: (Franchise) -> Unit) :
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Franchise>() {
-            override fun areItemsTheSame(oldItem: Franchise, newItem: Franchise): Boolean =
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DataItem>() {
+            override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: Franchise, newItem: Franchise): Boolean =
-                oldItem.name == newItem.name
+            override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean =
+                oldItem.franchiseName == newItem.franchiseName
         }
     }
 }

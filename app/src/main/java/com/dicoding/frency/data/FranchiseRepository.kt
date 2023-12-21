@@ -1,22 +1,17 @@
 package com.dicoding.frency.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.dicoding.frency.data.pref.UserPreference
-import com.dicoding.frency.data.remote.request.FranchiseRequest
-import com.dicoding.frency.data.remote.request.RegisterRequest
 import com.dicoding.frency.data.remote.response.GetAllFranchiseResponse
-import com.dicoding.frency.data.remote.response.RegisterResponse
 import com.dicoding.frency.data.remote.retrofit.ApiService
-import kotlinx.coroutines.flow.first
 
 class FranchiseRepository constructor(
     private val apiService: ApiService,
     private val userPreference: UserPreference
 ) {
 
-    fun getAllFranchise(): LiveData<Result<List<GetAllFranchiseResponse>>> = liveData {
+    fun getAllFranchise(): LiveData<Result<GetAllFranchiseResponse>> = liveData {
         emit(Result.Loading)
         try {
             val response = apiService.getAllFranchises()

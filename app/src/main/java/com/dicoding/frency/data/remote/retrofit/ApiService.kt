@@ -27,6 +27,6 @@ interface ApiService {
     ): UpdateResponse
 
     @GET("franchises")
-    suspend fun getAllFranchises(): List<GetAllFranchiseResponse>
+    suspend fun getAllFranchises(): GetAllFranchiseResponse
 
 }
