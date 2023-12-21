@@ -23,6 +23,12 @@ data class Franchisor(
     val id: Int
 )
 
+data class FranchiseTypeItem(
+
+    @field:SerializedName("type")
+    val type: Type
+)
+
 data class DataItem(
 
     @field:SerializedName("franchise_name")
@@ -52,13 +58,6 @@ data class DataItem(
     @field:SerializedName("whatsapp_number")
     val whatsappNumber: String
 )
-
-data class FranchiseTypeItem(
-
-    @field:SerializedName("type")
-    val type: Type
-)
-
 
 data class GalleryItem(
 

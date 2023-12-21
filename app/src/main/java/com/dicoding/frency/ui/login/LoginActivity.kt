@@ -8,7 +8,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.dicoding.frency.MainActivity
+import com.dicoding.frency.ui.MainActivity
 import com.dicoding.frency.R
 import com.dicoding.frency.ViewModelFactory
 import com.dicoding.frency.data.Result
@@ -20,6 +20,8 @@ import com.dicoding.frency.utils.isInternetAvailable
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
+
 
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
@@ -36,8 +38,10 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
+                Log.d("userId", "userId: $user")
                 startActivity(Intent(this, MainActivity::class.java))
             }
+            Log.d("userId", "userId: $user")
         }
 
         viewModel.loginResult.observe(this) { result ->

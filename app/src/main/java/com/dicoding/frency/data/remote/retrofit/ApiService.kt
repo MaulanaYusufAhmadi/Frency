@@ -7,9 +7,14 @@ import com.dicoding.frency.data.remote.response.GetAllFranchiseResponse
 import com.dicoding.frency.data.remote.response.LoginResponse
 import com.dicoding.frency.data.remote.response.RegisterResponse
 import com.dicoding.frency.data.remote.response.UpdateResponse
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.PATCH
+import retrofit2.http.POST
 
 interface ApiService {
+
 
     @POST("users")
     suspend fun createUser(
@@ -19,6 +24,7 @@ interface ApiService {
     @POST("users/login")
     suspend fun login(@Body request: LoginRequest): LoginResponse
 
+
     @PATCH("users/current")
     suspend fun updateUser(
         @Header("Authorization") authorization: String,
@@ -27,7 +33,7 @@ interface ApiService {
 
     @GET("franchises")
     suspend fun getAllFranchises(
-//        @Header("Authorization") authorization: String,
+        @Header("Authorization") authorization: String,
     ): GetAllFranchiseResponse
 
 }

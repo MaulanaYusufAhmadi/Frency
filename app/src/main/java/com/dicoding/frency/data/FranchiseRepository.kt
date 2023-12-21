@@ -16,17 +16,14 @@ class FranchiseRepository constructor(
     fun getAllFranchise(): LiveData<Result<GetAllFranchiseResponse>> = liveData {
         emit(Result.Loading)
         val token = userPreference.getSession().first().token
+        Log.d("token", token)
         try {
-            val response = apiService.getAllFranchises()
-            Log.d("ingpo", response.toString())
-
+            val response = apiService.getAllFranchises(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("ingpo", e.message.toString())
             emit(Result.Error(e.message ?: "An error occurred"))
         }
     }
-
 
     companion object {
         @Volatile

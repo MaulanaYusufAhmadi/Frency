@@ -1,13 +1,13 @@
-package com.dicoding.frency
+package com.dicoding.frency.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.dicoding.frency.R
 import com.dicoding.frency.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

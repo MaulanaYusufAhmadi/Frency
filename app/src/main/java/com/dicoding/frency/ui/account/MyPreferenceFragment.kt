@@ -20,7 +20,6 @@ class MyPreferenceFragment : PreferenceFragmentCompat() {
     private val viewModel by viewModels<AccountViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
-
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
@@ -39,6 +38,7 @@ class MyPreferenceFragment : PreferenceFragmentCompat() {
             }
             true
         }
+
 
         val logoutPreference = findPreference<Preference>("logout")
         logoutPreference?.setOnPreferenceClickListener {

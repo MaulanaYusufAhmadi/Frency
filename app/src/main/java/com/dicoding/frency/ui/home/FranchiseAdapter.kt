@@ -9,8 +9,8 @@ import com.dicoding.frency.databinding.FranchiseCardBinding
 import com.dicoding.frency.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 
-class FranchiseListAdapter(private val franchiseList: List<DataItem>) :
-    RecyclerView.Adapter<FranchiseListAdapter.FranchiseViewHolder>() {
+class FranchiseAdapter(private val franchiseList: List<DataItem>) :
+    RecyclerView.Adapter<FranchiseAdapter.FranchiseViewHolder>() {
 
     inner class FranchiseViewHolder(val binding: FranchiseCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -20,12 +20,11 @@ class FranchiseListAdapter(private val franchiseList: List<DataItem>) :
             binding.tvNameFranchises.text = franchiseData.franchiseName
             binding.tvCategoryFranchise.text = franchiseData.category
             binding.tvPriceFranchises.text = franchiseData.description
-
             // Tambahkan logika untuk menampilkan gambar jika ada
+
             // franchiseData.images berisi URI gambar yang diunggah ke Firebase Storage
             // Misalnya:
             Glide.with(binding.root.context).load(franchiseData.gallery.first().image).into(binding.ivFranchise)
-
         }
     }
 

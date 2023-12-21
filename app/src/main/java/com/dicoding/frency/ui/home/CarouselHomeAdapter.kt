@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.frency.data.remote.response.DataItem
 import com.dicoding.frency.databinding.ItemCarouselHomeBinding
-import kotlin.reflect.KFunction1
 
-class CarouselHomeAdapter(private val onItemClick: KFunction1<DataItem, Unit>) :
+class CarouselHomeAdapter(private val onItemClick: (DataItem) -> Unit) :
     ListAdapter<DataItem, CarouselHomeAdapter.CarouselViewHolder>(DIFF_CALLBACK) {
 
     inner class CarouselViewHolder(private val binding: ItemCarouselHomeBinding) :
@@ -19,7 +18,7 @@ class CarouselHomeAdapter(private val onItemClick: KFunction1<DataItem, Unit>) :
         fun bind(item: DataItem) {
             binding.apply {
                 Glide.with(binding.root)
-                    .load(item.gallery.first().image)
+                    .load(item.gallery.first())
                     .into(binding.ivCarousel)
                 root.setOnClickListener { onItemClick(item) }
             }

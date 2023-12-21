@@ -15,13 +15,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import com.bumptech.glide.Glide
+import com.dicoding.frency.ui.camera.CameraActivity
+import com.dicoding.frency.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
 import com.dicoding.frency.R
 import com.dicoding.frency.ViewModelFactory
 import com.dicoding.frency.data.pref.UserModel
 import com.dicoding.frency.databinding.ActivityEditProfileBinding
-import com.dicoding.frency.ui.camera.CameraActivity
-import com.dicoding.frency.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
+import com.bumptech.glide.Glide
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -29,7 +29,6 @@ class EditProfileActivity : AppCompatActivity() {
     private val viewModel by viewModels<EditProfileViewModel> {
         ViewModelFactory.getInstance(this)
     }
-
     // CEK PERMISSION IMAGE
     private var currentImageUri: Uri? = null
 
@@ -61,6 +60,7 @@ class EditProfileActivity : AppCompatActivity() {
 
 //            Log.d("DataGambar", "onCreate: $currentImageUri ")
         }
+
 
         viewModel.getSession().observe(this) { user ->
             Log.d("user", "onCreate: $user")
@@ -95,6 +95,9 @@ class EditProfileActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 
 
     private fun selectImage() {
@@ -157,5 +160,6 @@ class EditProfileActivity : AppCompatActivity() {
     companion object {
         private  const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
+
 
 }

@@ -13,4 +13,3 @@ data class UpdateResponse(
 	@field:SerializedName("message")
 	val message: String
 )
-
