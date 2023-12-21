@@ -1,13 +1,14 @@
 package com.dicoding.frency.ui.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dicoding.frency.data.FranchiseRepository
+import com.dicoding.frency.data.Result
+import com.dicoding.frency.data.remote.response.GetAllFranchiseResponse
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: FranchiseRepository): ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun getAllFranchise(): LiveData<Result<List<GetAllFranchiseResponse>>> {
+        return repository.getAllFranchise()
     }
-    val text: LiveData<String> = _text
 }

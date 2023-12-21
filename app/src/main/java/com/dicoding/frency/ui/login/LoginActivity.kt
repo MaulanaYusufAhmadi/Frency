@@ -3,6 +3,7 @@ package com.dicoding.frency.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -34,19 +35,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
-
-        viewModel.getSession().observe(this) { user ->
-            if (user.isLogin) {
-                val userName = user.role
-                Toast.makeText(this, "Welcome, $userName!", Toast.LENGTH_SHORT).show()
-
-                // Lanjut ke halaman utama
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
-        }
 
         viewModel.loginResult.observe(this) { result ->
             when(result) {

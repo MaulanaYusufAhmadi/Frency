@@ -1,38 +1,49 @@
-//package com.dicoding.frency.ui.detail
+//package com.aryasurya.franchiso.ui.detail
 //
-//import androidx.lifecycle.LiveData
-//import androidx.lifecycle.MediatorLiveData
-//import androidx.lifecycle.ViewModel
-//import androidx.lifecycle.viewModelScope
-//import com.dicoding.frency.data.UserRepository
-//import kotlinx.coroutines.Dispatchers
-//import kotlinx.coroutines.launch
+//import android.view.LayoutInflater
+//import android.view.ViewGroup
+//import androidx.recyclerview.widget.RecyclerView
+//import com.aryasurya.franchiso.data.entity.FranchiseItem
+//import com.aryasurya.franchiso.databinding.ItemTypeDetailBinding
 //
-//class DetailViewModel(private val repository: UserRepository) : ViewModel() {
+//class FranchiseItemAdapter(
+//    private val items: List<FranchiseItem>,
+//    private val onItemClick: (FranchiseItem) -> Unit
+//) : RecyclerView.Adapter<FranchiseItemAdapter.FranchiseItemViewHolder>() {
 //
-//    private val _githubUserDetail = MediatorLiveData<Result<DetailUserResponse>>()
-//    val githubUserDetail: LiveData<Result<DetailUserResponse>> = _githubUserDetail
+//    inner class FranchiseItemViewHolder(val binding: ItemTypeDetailBinding) :
+//        RecyclerView.ViewHolder(binding.root) {
 //
-//    private val _isFavorite = MediatorLiveData<Boolean>()
-//    val isFavorite: LiveData<Boolean> = _isFavorite
+//        fun bind(franchiseItem: FranchiseItem) {
+//            // Bind data ke elemen UI dalam item menggunakan ViewBinding
+//            binding.tvNameFranchises.text = franchiseItem.type
 //
-//    fun getGithubUserDetail(username: String) {
-//        val liveData = repository.getDetailUser(username)
-//        _githubUserDetail.addSource(liveData) { result ->
-//            _githubUserDetail.value = result
+//            itemView.setOnClickListener {
+//                onItemClick(franchiseItem)
+//            }
+//            // Set image based on type
+////            if (franchiseItem.type == "Store") {
+////                // Set image for Store type
+////                binding.ivFranchiseIcon.setImageResource(R.drawable.baseline_storefront_24)
+////            } else {
+////                // Set default image or another image for other types
+////                binding.ivFranchiseIcon.setImageResource(R.drawable.baseline_store_24)
+////            }
 //        }
 //    }
 //
-//    fun isFavorite(username: String) {
-//        val liveData = repository.isFavorite(username)
-//        _isFavorite.addSource(liveData) { result ->
-//            _isFavorite.value = result
-//        }
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FranchiseItemViewHolder {
+//        val binding = ItemTypeDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+//        return FranchiseItemViewHolder(binding)
 //    }
 //
-//    fun saveFavorite(favorite: FavoriteUser) =
-//        viewModelScope.launch(Dispatchers.IO) { repository.saveFavorite(favorite) }
+//    override fun onBindViewHolder(holder: FranchiseItemViewHolder, position: Int) {
+//        val franchiseItem = items[position]
 //
-//    fun deleteFavorite(favorite: FavoriteUser) =
-//        viewModelScope.launch(Dispatchers.IO) { repository.delete(favorite) }
+//        holder.bind(franchiseItem)
+//    }
+//
+//    override fun getItemCount(): Int {
+//        return items.size
+//    }
 //}

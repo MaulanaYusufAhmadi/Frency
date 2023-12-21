@@ -2,172 +2,209 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.home.HomeFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/bg_transparent"
-            android:iconifiedByDefault="false"
-            android:inputType="text"
-            android:queryHint="@string/search"
-            app:layout_constraintEnd_toStartOf="@+id/iv_notification"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--            android:id="@+id/swipeRefreshLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginHorizontal="16dp"-->
+<!--            android:visibility="gone">-->
 
-        <Button
-            android:id="@+id/iv_notification"
-            style="?attr/materialIconButtonStyle"
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="24dp"
-            app:iconSize="30dp"
-            android:background="@color/white"
-            app:icon="@drawable/baseline_notifications_24"
-            app:layout_constraintBottom_toBottomOf="@+id/search_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/search_view"
-            app:layout_constraintTop_toTopOf="@+id/search_view" />
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_transparent"
+                android:iconifiedByDefault="false"
+                android:inputType="text"
+                android:queryHint="@string/search"
+                app:layout_constraintEnd_toStartOf="@+id/iv_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/carousel_pager"
-            android:layout_width="0dp"
-            android:layout_height="220dp"
-            android:layout_marginVertical="12dp"
-            android:layout_marginBottom="8dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_view"
-            tools:listitem="@layout/item_carousel_home" />
+            <Button
+                android:id="@+id/iv_notification"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/white"
+                app:icon="@drawable/baseline_notifications_24"
+                app:iconSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/search_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/search_view"
+                app:layout_constraintTop_toTopOf="@+id/search_view" />
 
-        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:dotsColor="@android:color/darker_gray"
-            app:dotsCornerRadius="8dp"
-            app:dotsSize="12dp"
-            app:dotsSpacing="4dp"
-            app:dotsWidthFactor="2.5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/carousel_pager"
-            app:progressMode="false"
-            app:selectedDotColor="@color/black" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/carousel_pager"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_marginVertical="12dp"
+                android:layout_marginBottom="8dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_view"
+                tools:listitem="@layout/item_carousel_home" />
 
-        <TextView
-            android:id="@+id/tv_title_type"
-            style="@style/Text.SemiBold.H3"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/home_subtitle1"
-            app:layout_constraintStart_toStartOf="@+id/search_view"
-            app:layout_constraintTop_toBottomOf="@+id/dots_indicator" />
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                app:dotsColor="@android:color/darker_gray"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="12dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="2.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carousel_pager"
+                app:progressMode="false"
+                app:selectedDotColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_title_type"
+                style="@style/Text.SemiBold.H3"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/home_subtitle1"
+                app:layout_constraintStart_toStartOf="@+id/search_view"
+                app:layout_constraintTop_toBottomOf="@+id/dots_indicator" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_type"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_type"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_type_detail"
+                tools:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/tv_title_recomendation"
+                style="@style/Text.SemiBold.H3"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/home_subtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_type" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommendation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="14dp"
+                app:layout_constraintEnd_toStartOf="@id/btn_see_more"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_recomendation"
+                tools:ignore="RtlSymmetry"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recomendation_card"
+                tools:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/btn_see_more"
+                style="?attr/materialIconButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:visibility="gone"
+                app:icon="@drawable/baseline_arrow_forward_ios_24"
+                app:iconSize="60dp"
+                app:layout_constraintBottom_toBottomOf="@id/rv_recommendation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rv_recommendation"
+                app:layout_constraintTop_toTopOf="@id/rv_recommendation" />
+
+            <TextView
+                android:id="@+id/tv_title_franchise"
+                style="@style/Text.SemiBold.H3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/home_subtitle3"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_recomendation"
+                app:layout_constraintTop_toBottomOf="@+id/rv_recommendation" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_franchise"
+                android:layout_width="0dp"
+                android:layout_height="705dp"
+                android:paddingHorizontal="14dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_franchise"
+                app:spanCount="2"
+                tools:itemCount="6"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/franchise_card" />
+
+            <Button
+                android:id="@+id/btn_see_all_franchises"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="21dp"
+                android:layout_marginBottom="7dp"
+                android:text="@string/see_all_franchises"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_franchise" />
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+        <FrameLayout
+            android:id="@+id/overlay_loading"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_type"
-            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_type_detail"
-            tools:orientation="horizontal" />
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="#88000000"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/tv_title_recomendation"
-            style="@style/Text.SemiBold.H3"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/home_subtitle2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_type" />
+            <TextView
+                android:id="@+id/tv_no_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:visibility="gone" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recommendation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="14dp"
-            app:layout_constraintEnd_toStartOf="@id/btn_see_more"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_recomendation"
-            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recomendation_card"
-            tools:orientation="horizontal"
-            tools:ignore="RtlSymmetry" />
+            <ProgressBar
+                android:id="@+id/pb_list_franchise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_see_more"
-            style="?attr/materialIconButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/baseline_arrow_forward_ios_24"
-            app:iconSize="60dp"
-            android:layout_marginLeft="14dp"
-            app:layout_constraintStart_toEndOf="@+id/rv_recommendation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rv_recommendation"
-            app:layout_constraintBottom_toBottomOf="@id/rv_recommendation"
-            android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/tv_title_franchise"
-            style="@style/Text.SemiBold.H3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/home_subtitle3"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_recomendation"
-            app:layout_constraintTop_toBottomOf="@+id/rv_recommendation" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_franchise"
-            android:layout_width="0dp"
-            android:layout_height="705dp"
-            android:scrollbars="none"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_franchise"
-            app:spanCount="2"
-            android:paddingHorizontal="14dp"
-            tools:itemCount="6"
-            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/franchise_card" />
-
-        <Button
-            android:id="@+id/btn_see_all_franchises"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/see_all_franchises"
-            app:layout_constraintTop_toBottomOf="@id/rv_franchise"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="21dp"
-            style="@style/Widget.Material3.Button.TextButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="7dp"/>
-
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

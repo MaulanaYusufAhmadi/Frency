@@ -27,6 +27,7 @@
     <string name="failed_to_get_camera">Gagal mendapatkan kamera</string>
     <string name="failed_to_get_image">Gagal mendapatkan gambar</string>
     <string name="on_click_handler">Fitur belum diimplementasikan</string>
+    <string name="no_data">Tidak ada data</string>
 
 
     <!-- Night Mode Preferences -->

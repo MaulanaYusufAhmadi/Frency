@@ -3,6 +3,7 @@ package com.dicoding.frency.data.remote.retrofit
 import com.dicoding.frency.data.remote.request.LoginRequest
 import com.dicoding.frency.data.remote.request.RegisterRequest
 import com.dicoding.frency.data.remote.request.UpdateProfileRequest
+import com.dicoding.frency.data.remote.response.GetAllFranchiseResponse
 import com.dicoding.frency.data.remote.response.LoginResponse
 import com.dicoding.frency.data.remote.response.RegisterResponse
 import com.dicoding.frency.data.remote.response.UpdateResponse
@@ -25,5 +26,9 @@ interface ApiService {
         @Body updateRequest: UpdateProfileRequest
     ): UpdateResponse
 
+    @GET("franchises")
+    suspend fun getAllFranchises(
+        @Header("Authorization") authorization: String,
+    ): List<GetAllFranchiseResponse>
 
 }

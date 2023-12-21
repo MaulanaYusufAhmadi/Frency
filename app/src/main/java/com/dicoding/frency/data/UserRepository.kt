@@ -34,7 +34,7 @@ class UserRepository private constructor(
     suspend fun createUser(name: String, email: String, password: String): Flow<Result<RegisterResponse>> = flow {
         emit(Result.Loading)
         try {
-            val registerRequest = RegisterRequest(name, email, password, "franchisee")
+            val registerRequest = RegisterRequest(name, email, password, "franchisor")
             val response = apiService.createUser(registerRequest)
             emit(Result.Success(response))
         } catch (e: Exception) {
@@ -59,7 +59,7 @@ class UserRepository private constructor(
         emit(Result.Loading)
         val token = userPreference.getSession().first().token
         try {
-            val updateProfileRequest = UpdateProfileRequest(name, email, password, phone, gender, avatar, "franchisee")
+            val updateProfileRequest = UpdateProfileRequest(name, email, password, phone, gender, avatar, "franchisor")
             val response = apiService.updateUser("Bearer $token", updateProfileRequest)
             emit(Result.Success(response))
         } catch (e: Exception) {

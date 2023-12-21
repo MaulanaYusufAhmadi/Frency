@@ -27,6 +27,7 @@
     <string name="cancel">Cancel</string>
     <string name="failed_to_get_camera">Failed to get camera</string>
     <string name="failed_to_get_image">Failed to get Image</string>
+    <string name="no_data">No Data</string>
 
 
     <!-- Night Mode Preferences -->
